@@ -1,0 +1,63 @@
+// Generate placeholder image with text
+function generatePlaceholderImage(width, height, text, bgColor, textColor) {
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+  
+  // Background
+  ctx.fillStyle = bgColor;
+  ctx.fillRect(0, 0, width, height);
+  
+  // Text
+  ctx.fillStyle = textColor;
+  ctx.font = 'bold 20px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, width/2, height/2);
+  
+  return canvas.toDataURL('image/png');
+}
+
+// Generate and save placeholder images
+const placeholders = [
+  { name: 'placeholder.jpg', text: 'Profile Photo', bg: '#3b82f6', color: '#ffffff' },
+  { name: 'chemical-distribution.jpg', text: 'Chemical Distribution Strategy', bg: '#1e40af', color: '#ffffff' },
+  { name: 'erdemir-steel.jpg', text: 'Erdemir Steel & Iron', bg: '#4b5563', color: '#ffffff' },
+  { name: 'konya-investment.jpg', text: 'Konya Investment', bg: '#047857', color: '#ffffff' },
+  { name: 'endemic-plants.jpg', text: 'Endemic Plants', bg: '#065f46', color: '#ffffff' },
+  { name: 'jewellery-export.jpg', text: 'Jewellery Export/Import', bg: '#b45309', color: '#ffffff' },
+  { name: 'kosgeb-training.jpg', text: 'KOSGEB Training', bg: '#9333ea', color: '#ffffff' }
+];
+
+// Create image elements and append to document
+placeholders.forEach(placeholder => {
+  const img = document.createElement('img');
+  img.src = generatePlaceholderImage(400, 300, placeholder.text, placeholder.bg, placeholder.color);
+  img.alt = placeholder.text;
+  img.id = placeholder.name.replace('.jpg', '');
+  img.style.display = 'none';
+  document.body.appendChild(img);
+  
+  // Create download link
+  const link = document.createElement('a');
+  link.href = img.src;
+  link.download = placeholder.name;
+  link.textContent = `Download ${placeholder.name}`;
+  link.style.display = 'block';
+  link.style.margin = '10px';
+  document.body.appendChild(link);
+});
+
+// Add instructions
+const instructions = document.createElement('p');
+instructions.textContent = 'Click on each link to download the placeholder images, then move them to your website_project/images folder.';
+instructions.style.margin = '20px';
+instructions.style.fontWeight = 'bold';
+document.body.insertBefore(instructions, document.body.firstChild);
+
+// Add title
+const title = document.createElement('h1');
+title.textContent = 'Placeholder Image Generator';
+title.style.margin = '20px';
+document.body.insertBefore(title, document.body.firstChild);
