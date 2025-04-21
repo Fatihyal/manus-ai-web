@@ -7,10 +7,11 @@ public_folder: "/images/uploads"
 
 collections:
   - name: "blog"
-    label: "Blog"
-    folder: "posts"
+    label: "Blog Yazıları"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Başlık", name: "title", widget: "string" }
+      - { label: "Tarih", name: "date", widget: "datetime" }
+      - { label: "İçerik", name: "body", widget: "markdown" }
