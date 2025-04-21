@@ -1,7 +1,8 @@
-
 backend:
-  name: git-gateway
+  name: github
+  repo: Fatihyal/manus-ai-web
   branch: main
+  auth_scope: repo
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
