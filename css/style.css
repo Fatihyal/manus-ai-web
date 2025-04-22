@@ -194,9 +194,13 @@ button, .btn {
 
 .nav-menu {
   display: flex;
+  justify-content: center;  /* menüyü yatayda ortaya alır */
+  gap: 20px;                /* öğeler arası boşluk */
+  margin: 0 auto;           /* ekstra ortalama garantisi */
   list-style: none;
   margin-bottom: 0;
 }
+
 
 .nav-link {
   padding: var(--spacing-sm) var(--spacing-md);
