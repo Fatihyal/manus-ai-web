@@ -9,5 +9,15 @@
 
     <!-- Netlify CMS script, body sonuna alındı -->
     <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.open(); // Sayfa açılır açılmaz popup çıkacak
+      }
+    });
+  }
+</script>
   </body>
 </html>
